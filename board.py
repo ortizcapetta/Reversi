@@ -1,5 +1,5 @@
-import random
-
+import random,copy
+CUTOFF = 3
 class Board():
 
     def __init__(self):
@@ -101,6 +101,7 @@ class Board():
         if len(flip) == 0:  #no tiles flipped, therefor not a valid move
             return False
         return flip
+
     def placeTile(self,color,x,y):
         flips = self.checkIfValid(color,x,y)
         if flips is False:
@@ -171,6 +172,51 @@ class Board():
             return 1
         else:
             return 2
+
+    def duplicateBoard(self,board):
+        for x in range(8):
+            for y in range(8):
+                self.__squares[x][y] = board.__squares[x][y]
+
+    def evaluation(selfs):
+        boardeval = [10000,-3000,1000,800,800,1000,-3000,10000,
+        -3000,-5000,-450,-500,-500,-450,-5000,-3000,
+        1000,-450,30,10,10,30,-450,1000,
+        800,-500,10,50,50,10,-500,800,
+        800,-500,10,50,50,10,-500,800,
+         1000, -450, 30, 10, 10, 30, -450, 1000,
+         -3000, -5000, -450, -500, -500, -450, -5000, -3000,
+         10000, -3000, 1000, 800, 800, 1000, -3000, 10000]
+
+
+
+
+
+
+
+
+    '''def Minimax(board, player, depth, maximizingPlayer):
+    if depth == 0 or IsTerminalNode(board, player):
+        return EvalBoard(board, player)
+    if maximizingPlayer:
+        bestValue = minEvalBoard
+        for y in range(n):
+            for x in range(n):
+                if ValidMove(board, x, y, player):
+                    (boardTemp, totctr) = MakeMove(copy.deepcopy(board), x, y, player)
+                    v = Minimax(boardTemp, player, depth - 1, False)
+                    bestValue = max(bestValue, v)
+    else: # minimizingPlayer
+        bestValue = maxEvalBoard
+        for y in range(n):
+            for x in range(n):
+                if ValidMove(board, x, y, player):
+                    (boardTemp, totctr) = MakeMove(copy.deepcopy(board), x, y, player)
+                    v = Minimax(boardTemp, player, depth - 1, True)
+                    bestValue = min(bestValue, v)
+    return bestValue.'''
+
+
 
 
 
