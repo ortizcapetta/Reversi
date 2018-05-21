@@ -160,7 +160,8 @@ class Board():
     def getPlayerColor(self):
         choice = ''
         while choice.upper() != 'W' or choice.upper() != 'B':
-            choice = input("Player 1 enter B for Black or W for White")
+            choice = input("Player 1 enter B for Black or W for White\n"
+                           "")
             if choice == 'W':
                 return ['W','B']
             elif choice == 'B':

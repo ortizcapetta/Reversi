@@ -1,5 +1,5 @@
 import board as b
-import copy
+import random
 
 boardeval = [[10000, -3000, 1000, 800, 800, 1000, -3000, 10000],
              [-3000, -5000, -450, -500, -500, -450, -5000, -3000],
@@ -45,6 +45,11 @@ def miniMaxStart(color,board):
         if nbiggest > biggest:
             biggest = nbiggest
             move = x
+        elif nbiggest == biggest:
+            rand = random.randint(0, 1)
+            if rand == 0:
+                biggest = nbiggest
+
 
     return move
 
