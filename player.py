@@ -1,6 +1,16 @@
 import board as b
 import copy
 
+boardeval = [[10000, -3000, 1000, 800, 800, 1000, -3000, 10000],
+             [-3000, -5000, -450, -500, -500, -450, -5000, -3000],
+             [1000, -450, 30, 10, 10, 30, -450, 1000],
+             [800, -500, 10, 50, 50, 10, -500, 800],
+             [800, -500, 10, 50, 50, 10, -500, 800],
+             [1000, -450, 30, 10, 10, 30, -450, 1000],
+             [-3000, -5000, -450, -500, -500, -450, -5000, -3000],
+             [10000, -3000, 1000, 800, 800, 1000, -3000, 10000]]
+
+
 def miniMax(color, board, depth, maxPlayer):
     if depth == 0 or board.getLegalMoves(color) == []:
         return board.getScore().get(color)
@@ -24,14 +34,14 @@ def miniMax(color, board, depth, maxPlayer):
     return bestValue
 
 def miniMaxStart(color,board):
-    depth = 4
+    depth = 3
     moves = board.getLegalMoves(color)
-    biggest = -100000
+    biggest = -1000000000
     if moves == []:
         return None
 
     for x in moves:
-        nbiggest = miniMax(color,board,depth,True)
+        nbiggest = miniMax(color,board,depth,True) + boardeval[x[0]][x[1]]
         if nbiggest > biggest:
             biggest = nbiggest
             move = x

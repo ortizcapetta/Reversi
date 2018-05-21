@@ -2,30 +2,15 @@ import board as b
 import player
 
 
-'''
-board = b.Board()
-board.displayBoard()
-x = board.translateXCoor('D')
-y = board.translateYCoor('3')
-print(board.checkIfValid('B', x, y))
-moves = board.getLegalMoves('B')
-print(moves)
-board.placeTile('B',2,3)
-board.displayBoard()
-moves = board.getLegalMoves('W')
-print(moves)
-board.placeTile('W',2,2)
-board.displayBoard()
-board.getMove('B')
-'''
-
 def getPlayerChoice():
     cont = True
     while cont:
-        option = input("Options: \n"
-                       "1. P v P\n"
-                       "2. P v AI\n"
-                       "Enter number of selection:")
+        print("+-+-+-+-+-+-WELCOME TO REVERSI -+-+-+-+-+-+-+\n")
+        option = input("------------------Options:------------------- \n"
+                       "|\t\t\t\t1. P v P                     | \n"
+                       "|\t\t\t\t2. P v AI                    |\n"
+                       "|\t\t\tEnter number of selection        |\n"
+        "--------------------------------------------- \n")
         if option == '1' or option == '2':
             return option
         else:
@@ -75,22 +60,7 @@ def StartPvP():
         print("THANKS FOR PLAYING. STARTING OVER.")
 
 def StartvsAI():
-    '''
-    board = b.Board()
-    board.displayBoard()
-    x = board.translateXCoor('D')
-    y = board.translateYCoor('3')
-    print(board.checkIfValid('B', x, y))
-    moves = board.getLegalMoves('B')
-    print(moves)
-    board.placeTile('B', 2, 3)
-    board.displayBoard()
-    moves = board.getLegalMoves('W')
-    print(moves)
-    board.placeTile('W', 2, 2)
-    board.displayBoard()
-    v = player.miniMaxStart('B', board)
-    print(v)'''
+
 
     cont1 = True
 
@@ -115,7 +85,7 @@ def StartvsAI():
             else:
                 move = board.getMove(color)
                 if move == 'exit':
-                    print("Exiting Game")
+                    print("Exiting Game. Thanks for playing :)")
                     exit()
                 else:
                     board.placeTile(color, move[0], move[1])
