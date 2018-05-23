@@ -29,7 +29,7 @@ def miniMax(color, board, depth, maxPlayer):
             newBoard = b.Board()
             newBoard.duplicateBoard(board)
             newBoard.placeTile(color, x[0], x[1])
-            v = miniMax(color,newBoard,depth - 1, True)
+            v = miniMax(color, newBoard, depth - 1, True)
             bestValue = min(bestValue, v)
     return bestValue
 
@@ -41,7 +41,7 @@ def miniMaxStart(color,board):
         return None
 
     for x in moves:
-        nbiggest = miniMax(color,board,depth,True) + boardeval[x[0]][x[1]]
+        nbiggest = miniMax(color, board, depth, True) + boardeval[x[0]][x[1]]
         if nbiggest > biggest:
             biggest = nbiggest
             move = x
